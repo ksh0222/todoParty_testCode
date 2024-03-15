@@ -1,2 +1,7 @@
-package hello.todoparty.repository;public interface CommentRepository {
+package hello.todoparty.repository;
+
+import hello.todoparty.entity.Comment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CommentRepository extends JpaRepository<Comment, Long> {
 }

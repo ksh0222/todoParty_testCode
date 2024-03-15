@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @EqualsAndHashCode
-public class TodoRequestsDto {
+public class TodoRequestDto {
     private String title;
     private String content;
 }

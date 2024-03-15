@@ -1,2 +1,34 @@
-package hello.todoparty.dto;public class TodoResponseDto {
+package hello.todoparty.dto;
+
+import hello.todoparty.entity.Todo;
+import lombok.*;
+
+import java.time.LocalDateTime;
+
+@Setter
+@Getter
+@Builder
+@EqualsAndHashCode(callSuper = false)
+@AllArgsConstructor
+public class TodoResponseDto extends CommonResponseDto {
+    private Long id;
+    private String title;
+    private String content;
+    private Boolean isCompleted;
+    private UserDto user;
+    private LocalDateTime createDate;
+
+    public TodoResponseDto(String msg, Integer statusCode) {
+        super(msg, statusCode);
+    }
+
+    public TodoResponseDto(Todo todo) {
+        this.id = todo.getId();
+        this.title = todo.getTitle();
+        this.content = todo.getContent();
+        this.isCompleted = todo.getIsCompleted();
+        this.user = new UserDto(todo.getUser());
+        this.createDate = todo.getCreateDate();
+    }
+
 }
